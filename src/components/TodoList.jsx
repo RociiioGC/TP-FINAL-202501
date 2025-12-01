@@ -5,7 +5,7 @@ function TodoList({ todos, onToggle, onDelete, onEdit }) {
   if (todos.length === 0) {
     return (
       <Text textAlign="center" color="gray.500" fontSize="sm" mt={4}>
-        Todavía no tenes tareas. Agregá una arriba!
+        Todavía no tenés tareas. ¡Agregá una arriba!
       </Text>
     );
   }
