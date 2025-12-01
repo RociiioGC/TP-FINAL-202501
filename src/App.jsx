@@ -1,5 +1,6 @@
 import { Box, Container, VStack, Text, Tag } from "@chakra-ui/react";
 
+
 function App() {
   return (
     <Box minH="100vh" bg="#c9b4f9" py={10}>
