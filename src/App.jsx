@@ -39,7 +39,7 @@ function App() {
           {/* ACÁ AGREGAR EL FORM Y LA LISTA */}
           <Box mt={6}>
             <Text fontSize="sm" color="gray.500" textAlign="center">
-              (Aquí va la lista de tareas con iconos)
+              (Lista)
             </Text>
           </Box>
         </Box>
