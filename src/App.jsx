@@ -33,7 +33,7 @@ function App() {
 
             {/* CONTADOR DE TAREAS */}
             <Text fontSize="sm" color="gray.600" mt={2}>
-              You have <b>3</b> task(s) to complete
+              Tenes <b>3</b> tarea(s) por completar
             </Text>
           </VStack>
 
