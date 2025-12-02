@@ -86,6 +86,7 @@ Buenas prácticas
 
 📂 Estructura del proyecto
 ⸻
+```bash
 src/
  ├─ components/
  │   ├─ Form.jsx          → Input + botón “Agregar”
@@ -101,7 +102,7 @@ src/
  ├─ index.css             → Estilos globales (estética clean)
  ├─ main.jsx              → Renderizado principal
  └─ index.html
-
+```
 ⸻
 
 🚀 Cómo instalar y ejecutar el proyecto
