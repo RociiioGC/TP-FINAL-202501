@@ -1,17 +1,16 @@
-import { VStack, Text } from "@chakra-ui/react";
 import TodoItem from "./TodoItem";
 
 function TodoList({ todos, onToggle, onDelete, onEdit }) {
   if (todos.length === 0) {
     return (
-      <Text textAlign="center" color="gray.500" fontSize="sm" mt={4}>
+      <p className="text-center text-gray-500 text-sm mt-4">
         Todavía no tenés tareas. ¡Agregá una arriba!
-      </Text>
+      </p>
     );
   }
 
   return (
-    <VStack align="stretch" spacing={1} mt={4}>
+    <div className="mt-4">
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}
@@ -21,7 +20,7 @@ function TodoList({ todos, onToggle, onDelete, onEdit }) {
           onEdit={onEdit}
         />
       ))}
-    </VStack>
+    </div>
   );
 }
 

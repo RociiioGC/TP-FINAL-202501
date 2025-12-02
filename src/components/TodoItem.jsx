@@ -1,57 +1,43 @@
-import { HStack, Text, IconButton, Checkbox, Box } from "@chakra-ui/react";
-import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
-
 function TodoItem({ todo, onToggle, onDelete, onEdit }) {
-  return (
-    <Box
-      bg="white"
-      borderRadius="lg"
-      p={3}
-      my={2}
-      boxShadow="sm"
-      border="1px solid #eee"
-    >
-      <HStack justify="space-between">
-        {/* Checkbox + texto */}
-        <HStack spacing={3}>
-          <Checkbox
-            isChecked={todo.isCompleted}
-            colorScheme="purple"
+    return (
+      <div className="flex justify-between items-center p-3 bg-white shadow rounded-lg mt-2">
+        <div className="flex items-center gap-3">
+          <input
+            type="checkbox"
+            checked={todo.isCompleted}
             onChange={() => onToggle(todo.id)}
+            className="checkbox checkbox-primary"
           />
-
-          <Text
-            fontSize="sm"
-            textDecoration={todo.isCompleted ? "line-through" : "none"}
-            color={todo.isCompleted ? "gray.400" : "gray.800"}
+  
+          <p
+            className={`text-sm ${
+              todo.isCompleted ? "line-through text-gray-400" : "text-gray-800"
+            }`}
           >
             {todo.text}
-          </Text>
-        </HStack>
-
-        {/* Botones de editar y borrar */}
-        <HStack spacing={2}>
-          <IconButton
-            size="sm"
-            aria-label="Editar tarea"
-            icon={<EditIcon />}
-            colorScheme="blue"
-            variant="solid"
+          </p>
+        </div>
+  
+        <div className="flex gap-2">
+          <button
+            type="button"
             onClick={() => onEdit(todo.id)}
-          />
-
-          <IconButton
-            size="sm"
-            aria-label="Eliminar tarea"
-            icon={<DeleteIcon />}
-            colorScheme="red"
-            variant="solid"
+            className="btn btn-xs btn-info"
+            aria-label="Editar tarea"
+          >
+            ✏️
+          </button>
+          <button
+            type="button"
             onClick={() => onDelete(todo.id)}
-          />
-        </HStack>
-      </HStack>
-    </Box>
-  );
-}
-
-export default TodoItem;
+            className="btn btn-xs btn-error"
+            aria-label="Eliminar tarea"
+          >
+            🗑️
+          </button>
+        </div>
+      </div>
+    );
+  }
+  
+  export default TodoItem;
