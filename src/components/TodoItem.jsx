@@ -1,32 +1,30 @@
 function TodoItem({ todo, onToggle, onDelete, onEdit }) {
-  const textClass = `todo-text${todo.isCompleted ? " completed" : ""}`;
-
   return (
-    <li className="todo-item">
-      <div className="todo-left">
+    <li className={`todo-item ${todo.isCompleted ? "is-completed" : ""}`}>
+      <label className="todo-item-left">
         <input
           type="checkbox"
-          className="todo-checkbox"
           checked={todo.isCompleted}
           onChange={() => onToggle(todo.id)}
+          className="todo-checkbox"
         />
-        <span className={textClass}>{todo.text}</span>
-      </div>
+        <span className="todo-text">{todo.text}</span>
+      </label>
 
-      <div className="todo-actions">
+      <div className="todo-item-actions">
         <button
           type="button"
-          className="icon-button"
-          onClick={() => onEdit(todo.id)}
+          className="todo-icon-button"
           aria-label="Editar tarea"
+          onClick={() => onEdit(todo.id)}
         >
           ✏️
         </button>
         <button
           type="button"
-          className="icon-button delete"
-          onClick={() => onDelete(todo.id)}
+          className="todo-icon-button"
           aria-label="Eliminar tarea"
+          onClick={() => onDelete(todo.id)}
         >
           🗑️
         </button>

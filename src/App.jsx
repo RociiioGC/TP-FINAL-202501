@@ -71,7 +71,9 @@ function App() {
     );
   };
 
-  const handleFilterChange = (e) => setFilter(e.target.value);
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
 
   const filteredTodos = todos.filter((todo) => {
     if (filter === "completed") return todo.isCompleted;
@@ -83,40 +85,64 @@ function App() {
 
   return (
     <div className="app-wrapper">
-      <div className="notebook-card">
+      <div className="todo-card">
         {/* HEADER */}
-        <header className="card-header">
-          <div className="card-title-pill">To-Do List</div>
-          <p className="card-subtitle">Pendientes de hoy ✨</p>
-          <p className="card-counter">
-            Tenés <strong>{pendingCount}</strong> tarea(s) pendientes
+        <header className="todo-header">
+          <div className="todo-title-row">
+            <div className="todo-title-badge">To-Do List</div>
+
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="title-star"
+            >
+              <path
+                d="M32 6 L38 22 L56 24 L42 34 L46 52 L32 42 L18 52 L22 34 L8 24 L26 22 Z"
+                stroke="black"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+
+          <p className="todo-subtitle">Pendientes de hoy ✨</p>
+
+          <p className="todo-counter">
+            Tenés <span>{pendingCount}</span> tarea(s) pendientes
           </p>
         </header>
 
-        {/* FORM */}
-        <Form onAdd={handleAdd} />
+        {/* MAIN */}
+        <main className="todo-main">
+          {/* FORM */}
+          <Form onAdd={handleAdd} />
 
-        {/* FILTRO */}
-        <div className="todo-filter-row">
-          <span>Ver:</span>
-          <select
-            value={filter}
-            onChange={handleFilterChange}
-            className="todo-filter-select"
-          >
-            <option value="all">Todas</option>
-            <option value="pending">Pendientes</option>
-            <option value="completed">Completadas</option>
-          </select>
-        </div>
+          {/* FILTRO */}
+          <div className="todo-filter-row">
+            <span className="todo-filter-label">Ver:</span>
+            <select
+              value={filter}
+              onChange={handleFilterChange}
+              className="todo-filter-select"
+            >
+              <option value="all">Todas</option>
+              <option value="pending">Pendientes</option>
+              <option value="completed">Completadas</option>
+            </select>
+          </div>
 
-        {/* LISTA */}
-        <TodoList
-          todos={filteredTodos}
-          onToggle={handleToggle}
-          onDelete={handleDelete}
-          onEdit={handleEdit}
-        />
+          {/* LISTA */}
+          <TodoList
+            todos={filteredTodos}
+            onToggle={handleToggle}
+            onDelete={handleDelete}
+            onEdit={handleEdit}
+          />
+        </main>
       </div>
     </div>
   );

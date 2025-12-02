@@ -1,238 +1,343 @@
-/* Fuente tipo manuscrita */
-@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
-
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html,
+:root {
+  --lilac-bg: #c9b4f9;
+  --card-bg: #fffdfc;
+  --mint: #3af5c3;
+  --dot-color: rgba(186, 160, 240, 0.35);
+  --text-main: #333333;
+  --text-soft: #666666;
+}
+
+/* BODY Y WRAPPER */
+
 body {
   margin: 0;
-  padding: 0;
-}
-
-body {
-  min-height: 100vh;
-  background-color: #c9b4f9; /* lila fondo */
-  font-family: "Kalam", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-#root {
   min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background: var(--lilac-bg);
+  font-family: "Kalam", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
 }
-
-/* --- App layout --- */
 
 .app-wrapper {
   width: 100%;
+  padding: 40px 16px;
   display: flex;
   justify-content: center;
-  padding: 24px;
+  align-items: center;
 }
 
-/* Tarjeta tipo cuaderno */
-.notebook-card {
-  width: min(90vw, 460px); /* NO ocupa todo el ancho de la pantalla */
-  background-color: #ffffff;
+/* CARD PRINCIPAL */
+
+.todo-card {
+  width: 100%;
+  max-width: 520px;
+  background-color: var(--card-bg);
   border-radius: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 18px 40px rgba(88, 61, 155, 0.35);
+  background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
+  background-size: 18px 18px;
   padding: 32px 32px 24px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-
-  background-image: radial-gradient(circle, #e4d6ff 1px, transparent 1px);
-  background-size: 16px 16px;
 }
 
-/* --- Header --- */
+/*  HEADER  */
 
-.card-header {
+.todo-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
-.card-title-pill {
-  padding: 8px 20px;
-  border-radius: 999px;
-  background-color: #3af5c3;
-  font-weight: 700;
-  font-size: 18px;
-  color: #333;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
-}
+.todo-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* espacio estrella - badge */
+    margin-bottom: 14px;
+  }
+  
+  .title-star {
+    margin-top: 2px;
+  }
+  
 
-.card-subtitle {
-  font-size: 14px;
-  color: #555;
+  .todo-title-badge {
+    background: #3af5c3;
+    color: black;
+    padding: 10px 26px;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.35);
+  }
+
+.todo-subtitle {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  color: var(--text-soft);
   font-style: italic;
-  margin: 0;
 }
 
-.card-counter {
-  font-size: 12px;
-  color: #666;
-  margin: 0;
+.todo-counter {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: var(--text-soft);
 }
 
-/* --- Formulario --- */
+.todo-counter span {
+  font-weight: 700;
+}
+
+/*  MAIN LAYOUT  */
+
+.todo-main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/*  FORM / INPUT  */
 
 .todo-form {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.todo-input-wrapper {
+  flex: 1;
 }
 
 .todo-input {
-  flex: 1;
+  width: 100%;
   border: none;
-  border-bottom: 2px dashed #f472d0;
-  padding: 4px 0;
-  font-size: 14px;
   background: transparent;
-  color: #444;
+  font-size: 0.9rem;
+  color: #7c3aed;
+  padding: 0 0 4px;
 }
 
 .todo-input::placeholder {
-  color: #b089c6;
+  color: #b36bf8;
 }
 
 .todo-input:focus {
   outline: none;
 }
 
-/* Botón tipo dibujado */
-.todo-add-button {
-  border: 1px solid #000;
-  background-color: #e0fff4;
-  padding: 6px 14px;
-  font-size: 13px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 0 #000;
+.todo-input-underline {
+  border-bottom: 2px dashed #f472d0;
+}
+
+/*  BOTÓN AGREGAR (CARTOON) */
+
+.add-button {
+  padding: 7px 18px;
+  border-radius: 12px;
+  border: 1.6px solid #111111;
+  background: #b8ffe8;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.9);
+  font-size: 0.82rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
-  color: #333;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-.todo-add-button:hover {
+.add-button:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 #000;
+  box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.9);
 }
 
-.todo-add-button:active {
+.add-button:active {
   transform: translate(1px, 1px);
-  box-shadow: 0 0 0 #000;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
 }
 
-/* --- Filtro --- */
+/*  FILTRO */
 
 .todo-filter-row {
-  margin-top: 10px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
-  color: #555;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+  color: var(--text-soft);
 }
 
 .todo-filter-select {
-  font-size: 12px;
-  padding: 3px 8px;
+  font-size: 0.75rem;
+  padding: 2px 6px;
   border-radius: 6px;
-  border: 1px solid #e4c6ff;
-  background-color: #fff;
-  color: #444;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  background: #ffffff;
 }
 
-.todo-filter-select:focus {
-  outline: 2px solid #f3c8ff;
-}
-
-/* --- Lista de tareas --- */
+/* LISTA DE TAREAS */
 
 .todo-list {
   list-style: none;
-  margin: 16px 0 0;
+  margin: 4px 0 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .todo-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  padding: 4px 0;
+  gap: 10px;
+  padding: 4px 4px;
+  border-radius: 10px;
+  transition: background 0.15s ease;
+  animation: todoEnter 0.25s ease-out;
 }
 
-.todo-left {
+.todo-item:hover {
+  background: rgba(186, 160, 240, 0.12);
+}
+
+.todo-item-left {
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.todo-checkbox {
-  width: 14px;
-  height: 14px;
-  accent-color: #b388ff;
-  cursor: pointer;
+  flex: 1;
 }
 
 .todo-text {
-  font-size: 14px;
-  color: #444;
+  font-size: 0.9rem;
+  color: var(--text-main);
 }
 
-.todo-text.completed {
+.todo-item.is-completed .todo-text {
   text-decoration: line-through;
-  opacity: 0.5;
+  color: #aaaaaa;
 }
 
-/* Acciones (editar / borrar) */
+/* CHECKBOX */
+.todo-checkbox {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
 
-.todo-actions {
+/* ICONOS EDITAR / BORRAR -  COMO STICKERS */
+
+.todo-item-actions {
   display: flex;
-  align-items: center;
   gap: 4px;
-  padding-right: 4px; /* separa de la derecha */
 }
 
-.icon-button {
+.todo-icon-button {
   width: 24px;
   height: 24px;
-  border-radius: 6px;
-  border: 1px solid #e0d4ff;
-  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1.5px solid rgba(0, 0, 0, 0.7);
+  background: #ffffff;
+  box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.1s ease;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  font-size: 0.85rem;
+  padding: 0;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-.icon-button:hover {
-  background-color: #f3e8ff;
-  transform: translateY(-1px);
+.todo-icon-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.9);
 }
 
-.icon-button.delete {
-  border-color: #ffd6d6;
+.todo-icon-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
 }
 
-.icon-button.delete:hover {
-  background-color: #ffecec;
-}
+/* MENSAJE SIN TAREAS */
 
-/* Texto vacío */
 .todo-empty {
-  margin-top: 12px;
-  font-size: 12px;
-  color: #777;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  text-align: center;
 }
+
+/* ANIMACIONES */
+
+@keyframes todoEnter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*  media QUERY para celulares (pantallas menores a 480px) */
+@media (max-width: 480px) {
+    .todo-card {
+      padding: 24px 20px;
+      border-radius: 26px;
+    }
+  
+    .todo-title-badge {
+      font-size: 0.9rem;
+      padding: 8px 20px;
+    }
+  
+    .todo-subtitle {
+      font-size: 0.8rem;
+    }
+  
+    .todo-counter {
+      font-size: 0.75rem;
+    }
+  
+    .todo-form {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  
+    .add-button {
+      align-self: flex-end;
+      padding: 6px 16px;
+      font-size: 0.78rem;
+    }
+  
+    .todo-filter-row {
+      justify-content: flex-start;
+      font-size: 0.75rem;
+    }
+  
+    .todo-list {
+      gap: 6px;
+    }
+  
+    .todo-item {
+      padding: 6px 4px;
+    }
+  
+    .todo-icon-button {
+      width: 22px;
+      height: 22px;
+      font-size: 0.75rem;
+    }
+  }
