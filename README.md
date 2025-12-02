@@ -89,6 +89,7 @@ Buenas prácticas
 ⸻
 
 src/
+
  ├─ components/
  │   ├─ Form.jsx          → Input + botón “Agregar”
  │   ├─ TodoItem.jsx      → Cada tarea individual (checkbox + iconos)
