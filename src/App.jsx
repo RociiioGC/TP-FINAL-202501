@@ -89,15 +89,37 @@ function App() {
         {/* HEADER */}
         <header className="todo-header">
           <div className="todo-title-row">
-            <div className="todo-title-badge">To-Do List</div>
-
+            {/* ⭐ Izquierda */}
             <svg
-              width="24"
-              height="24"
+              width="22"
+              height="22"
               viewBox="0 0 64 64"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className="title-star"
+              style={{ animationDelay: "0.15s" }}
+            >
+              <path
+                d="M32 6 L38 22 L56 24 L42 34 L46 52 L32 42 L18 52 L22 34 L8 24 L26 22 Z"
+                stroke="black"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+
+            {/* Título */}
+            <div className="todo-title-badge">To-Do List</div>
+
+            {/* ⭐ Derecha */}
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="title-star"
+              style={{ animationDelay: "0.3s" }}
             >
               <path
                 d="M32 6 L38 22 L56 24 L42 34 L46 52 L32 42 L18 52 L22 34 L8 24 L26 22 Z"
@@ -108,9 +130,7 @@ function App() {
               />
             </svg>
           </div>
-
-          <p className="todo-subtitle">Pendientes de hoy ✨</p>
-
+          
           <p className="todo-counter">
             Tenés <span>{pendingCount}</span> tarea(s) pendientes
           </p>

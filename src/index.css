@@ -59,27 +59,51 @@ body {
 }
 
 .todo-title-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* espacio estrella - badge */
-    margin-bottom: 14px;
-  }
-  
-  .title-star {
-    margin-top: 2px;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* espacio estrella - badge */
+  margin-bottom: 14px;
+}
 
-  .todo-title-badge {
-    background: #3af5c3;
-    color: black;
-    padding: 10px 26px;
-    border-radius: 9999px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.35);
+/* ESTRELLAS */
+
+@keyframes starBounce {
+  0% {
+    transform: scale(0) translateY(-10px);
+    opacity: 0;
   }
+  60% {
+    transform: scale(1.2) translateY(2px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.title-star {
+  opacity: 0.85;
+  animation: starBounce 0.6s ease-out forwards;
+  transform-origin: center;
+  transition: transform 0.15s ease;
+}
+
+.title-star:hover {
+  transform: scale(1.25) rotate(5deg);
+}
+
+/* BADGE TO-DO LIST */
+
+.todo-title-badge {
+  background: var(--mint);
+  color: black;
+  padding: 10px 26px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.35);
+}
 
 .todo-subtitle {
   margin: 6px 0 0;
@@ -229,13 +253,14 @@ body {
 }
 
 /* CHECKBOX */
+
 .todo-checkbox {
   width: 14px;
   height: 14px;
   cursor: pointer;
 }
 
-/* ICONOS EDITAR / BORRAR -  COMO STICKERS */
+/* ICONOS EDITAR / BORRAR - STICKERS */
 
 .todo-item-actions {
   display: flex;
@@ -290,54 +315,55 @@ body {
   }
 }
 
-/*  media QUERY para celulares (pantallas menores a 480px) */
+/* MEDIA QUERY para celulares (pantallas menores a 480px) */
+
 @media (max-width: 480px) {
-    .todo-card {
-      padding: 24px 20px;
-      border-radius: 26px;
-    }
-  
-    .todo-title-badge {
-      font-size: 0.9rem;
-      padding: 8px 20px;
-    }
-  
-    .todo-subtitle {
-      font-size: 0.8rem;
-    }
-  
-    .todo-counter {
-      font-size: 0.75rem;
-    }
-  
-    .todo-form {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-    }
-  
-    .add-button {
-      align-self: flex-end;
-      padding: 6px 16px;
-      font-size: 0.78rem;
-    }
-  
-    .todo-filter-row {
-      justify-content: flex-start;
-      font-size: 0.75rem;
-    }
-  
-    .todo-list {
-      gap: 6px;
-    }
-  
-    .todo-item {
-      padding: 6px 4px;
-    }
-  
-    .todo-icon-button {
-      width: 22px;
-      height: 22px;
-      font-size: 0.75rem;
-    }
+  .todo-card {
+    padding: 24px 20px;
+    border-radius: 26px;
   }
+
+  .todo-title-badge {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+
+  .todo-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .todo-counter {
+    font-size: 0.75rem;
+  }
+
+  .todo-form {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .add-button {
+    align-self: flex-end;
+    padding: 6px 16px;
+    font-size: 0.78rem;
+  }
+
+  .todo-filter-row {
+    justify-content: flex-start;
+    font-size: 0.75rem;
+  }
+
+  .todo-list {
+    gap: 6px;
+  }
+
+  .todo-item {
+    padding: 6px 4px;
+  }
+
+  .todo-icon-button {
+    width: 22px;
+    height: 22px;
+    font-size: 0.75rem;
+  }
+}
