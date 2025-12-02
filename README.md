@@ -7,21 +7,20 @@ La app permite gestionar tareas de forma simple, rápida y visualmente atractiva
 ⸻
 
 🎯 Propósito del proyecto
-	•	Agregar tareas
-	•	Marcar tareas como completadas
-	•	Editar y eliminar con confirmación
-	•	Filtrar por todas, pendientes y completadas
-	•	Guardar todo automáticamente en el navegador
-	•	Usar una interfaz “cute”, inspirada en libretas pastel
+	•	➕ Agregar tareas
+	•	✔️ Marcar tareas como completadas
+	•	✏️ Editar y eliminar con confirmación
+	•	🔍 Filtrar por todas, pendientes y completadas
+	•	💾 Guardar automáticamente en el navegador
+	•	🎨 Usar una interfaz cute inspirada en cuadernos pastel
 
 Además cumple con:
 	•	Código modular y componentes reutilizables
 	•	Carpeta utils obligatoria
 	•	Lógica separada de la UI
-	•	Validación estricta de los datos
+	•	Validación estricta de datos
 	•	Diseño responsive mobile-first
 	•	Persistencia real en localStorage
-
 ⸻
 
 
@@ -81,7 +80,7 @@ Buenas prácticas
 ⸻
 
 📂 Estructura del proyecto
-⸻
+
 src/
  ├─ components/
  │   ├─ Form.jsx          → Input + botón “Agregar”
@@ -94,11 +93,9 @@ src/
  │   ├─ filters.js        → Lógica de filtrado y contador
  │
  ├─ App.jsx               → Lógica principal + vista general
- ├─ index.css             → Estilos globales (diseño cute)
+ ├─ index.css             → Estilos globales (estética clean)
  ├─ main.jsx              → Renderizado principal
  └─ index.html
-
-
 ⸻
 
 🚀 Cómo instalar y ejecutar el proyecto
