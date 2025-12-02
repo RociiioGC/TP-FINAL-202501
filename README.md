@@ -33,37 +33,53 @@ A continuación se muestran vistas del funcionamiento de la aplicación:
 
 🖼️ Layout principal
 
+![Layout principal](./layout-principal.png)
+
 ⸻
 
 ✨ Sin tareas
+
+![Sin tareas](./mensaje-sin-tareas.png)
 
 ⸻
 
 📝 Editar una tarea
 
-editar-tarea.png
+![Editar tarea](./editar-tarea.png)
 
 ⸻
 
 🗑️ Confirmación para eliminar
 
+![Confirmar eliminación](./eliminar-tarea.png)
+
 ⸻
 
 🔽 Menú de filtros
+
+![Menú de opciones](./menu-opciones.png)
 
 ⸻
 
 ✔️ Mostrar completadas
 
+![Completadas](./mostrar-completadas.png)
+
 ⸻
 
 ⏳ Mostrar pendientes
+
+![Pendientes](./mostrar-pendientes.png)
 
 ⸻
 
 🟦 Tarea realizada (checkbox)
 
 
+![Tarea realizada](./tarea-realizada.png)
+
+
+⸻
 
 🛠️ Tecnologías utilizadas
 
