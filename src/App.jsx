@@ -1,31 +1,32 @@
 import { useEffect, useState } from "react";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
+import { loadTodos, saveTodos } from "./utils/localStorage";
+import { filterTodos, countPendingTodos } from "./utils/filters";
+import { validateTodoText } from "./utils/validators";
 
 function App() {
-  const [todos, setTodos] = useState(() => {
-    const stored = localStorage.getItem("todos");
-    if (!stored) return [];
-    try {
-      return JSON.parse(stored);
-    } catch {
-      return [];
-    }
-  });
-
+  const [todos, setTodos] = useState(() => loadTodos());
   const [filter, setFilter] = useState("all");
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
+    saveTodos(todos);
   }, [todos]);
 
   const handleAdd = (text) => {
+    const error = validateTodoText(text);
+    if (error) {
+      alert(error);
+      return;
+    }
+
     const newTodo = {
       id: crypto.randomUUID(),
-      text,
+      text: text.trim(),
       isCompleted: false,
       createdAt: Date.now(),
     };
+
     setTodos((prev) => [newTodo, ...prev]);
   };
 
@@ -43,6 +44,7 @@ function App() {
       `¿Seguro que querés eliminar: "${todoToDelete?.text}"?`
     );
     if (!confirmed) return;
+
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
 
@@ -54,15 +56,14 @@ function App() {
     );
 
     if (newText === null) return;
+
+    const error = validateTodoText(newText);
+    if (error) {
+      alert(error);
+      return;
+    }
+
     const trimmed = newText.trim();
-    if (!trimmed) {
-      alert("La tarea no puede estar vacía.");
-      return;
-    }
-    if (trimmed.length > 100) {
-      alert("La tarea es demasiado larga (máx. 100 caracteres).");
-      return;
-    }
 
     setTodos((prev) =>
       prev.map((todo) =>
@@ -75,13 +76,8 @@ function App() {
     setFilter(e.target.value);
   };
 
-  const filteredTodos = todos.filter((todo) => {
-    if (filter === "completed") return todo.isCompleted;
-    if (filter === "pending") return !todo.isCompleted;
-    return true;
-  });
-
-  const pendingCount = todos.filter((t) => !t.isCompleted).length;
+  const filteredTodos = filterTodos(todos, filter);
+  const pendingCount = countPendingTodos(todos);
 
   return (
     <div className="app-wrapper">
@@ -89,7 +85,7 @@ function App() {
         {/* HEADER */}
         <header className="todo-header">
           <div className="todo-title-row">
-            {/* ⭐ Izquierda */}
+            {/* ⭐ izquierda */}
             <svg
               width="22"
               height="22"
@@ -108,10 +104,9 @@ function App() {
               />
             </svg>
 
-            {/* Título */}
             <div className="todo-title-badge">To-Do List</div>
 
-            {/* ⭐ Derecha */}
+            {/* ⭐ derecha */}
             <svg
               width="22"
               height="22"
@@ -130,7 +125,8 @@ function App() {
               />
             </svg>
           </div>
-          
+
+          {/* sin “Pendientes de hoy ✨” como pediste */}
           <p className="todo-counter">
             Tenés <span>{pendingCount}</span> tarea(s) pendientes
           </p>
@@ -138,10 +134,8 @@ function App() {
 
         {/* MAIN */}
         <main className="todo-main">
-          {/* FORM */}
           <Form onAdd={handleAdd} />
 
-          {/* FILTRO */}
           <div className="todo-filter-row">
             <span className="todo-filter-label">Ver:</span>
             <select
@@ -155,7 +149,6 @@ function App() {
             </select>
           </div>
 
-          {/* LISTA */}
           <TodoList
             todos={filteredTodos}
             onToggle={handleToggle}
