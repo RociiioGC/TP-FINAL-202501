@@ -7,6 +7,7 @@ La app permite gestionar tareas de forma simple, rápida y visualmente atractiva
 ⸻
 
 🎯 Propósito del proyecto
+
 	•	Agregar tareas
 	•	Marcar tareas como completadas
 	•	Editar y eliminar con confirmación
@@ -15,6 +16,7 @@ La app permite gestionar tareas de forma simple, rápida y visualmente atractiva
 	•	Usar una interfaz “cute”, inspirada en libretas pastel
 
 Además cumple con:
+
 	•	Código modular y componentes reutilizables
 	•	Carpeta utils obligatoria
 	•	Lógica separada de la UI
