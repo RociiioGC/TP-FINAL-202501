@@ -1,29 +1,30 @@
-📝 To-Do List — Proyecto Final (ADA)
+# 📝 To-Do List — Proyecto Final (ADA)
 
-Aplicación web creada como Trabajo Práctico Final del Módulo 4 – Vite/React, cumpliendo los requisitos de componentes, validaciones, filtros, diseño responsive y persistencia en localStorage.
+Aplicación web creada como Trabajo Práctico Final del Módulo 4 – **Vite/React**, cumpliendo los requisitos de componentes, validaciones, filtros, diseño responsive y persistencia en **localStorage**.
 
 La app permite gestionar tareas de forma simple, rápida y visualmente atractiva.
 
-⸻
+---
 
-🎯 Propósito del proyecto
-	•	Agregar tareas
-	•	Marcar tareas como completadas
-	•	Editar y eliminar con confirmación
-	•	Filtrar por todas, pendientes y completadas
-	•	Guardar todo automáticamente en el navegador
-	•	Usar una interfaz “cute”, inspirada en libretas pastel
+## 🎯 Propósito del proyecto
 
-Además cumple con:
+- Agregar tareas  
+- Marcar tareas como completadas  
+- Editar y eliminar con confirmación  
+- Filtrar por todas, pendientes y completadas  
+- Guardar todo automáticamente en el navegador  
+- Interfaz “cute”, inspirada en libretas pastel  
 
-	•	Código modular y componentes reutilizables
-	•	Carpeta utils obligatoria
-	•	Lógica separada de la UI
-	•	Validación estricta de datos
-	•	Diseño responsive mobile-first
-	•	Persistencia real en localStorage
-⸻
+Además incluye:
 
+- Código modular y componentes reutilizables  
+- Carpeta `utils` obligatoria  
+- Lógica separada de la UI  
+- Validación estricta de datos  
+- Diseño responsive mobile-first  
+- Persistencia real en localStorage  
+
+---
 
 ## 📸 Screenshots
 
@@ -45,29 +46,27 @@ A continuación se muestran vistas del funcionamiento de la aplicación:
 |----------------------|--------------------|
 | ![Pendientes](./mostrar-pendientes.png) | ![Tarea realizada](./tarea-realizada.png) |
 
-⸻
+---
 
-🛠️ Tecnologías utilizadas
+## 🛠️ Tecnologías utilizadas
 
-Frontend
+### Frontend
+- React.js  
+- Vite  
+- CSS puro  
+- Google Fonts — Kalam  
+- LocalStorage para persistencia  
 
-	•	React.js
-	•	Vite
-	•	CSS puro (sin frameworks mezclados)
-	•	Google Fonts — Kalam
-	•	LocalStorage para persistencia
+### Buenas prácticas
+- Componentes desacoplados  
+- Funciones puras en `/utils`  
+- Validación centralizada  
+- Código limpio y organizado  
 
-Buenas prácticas
+---
 
-	•	Componentes desacoplados
-	•	Funciones puras en /utils
-	•	Validación centralizada
-	•	Código limpio y organizado
+## 📂 Estructura del proyecto
 
-⸻
-
-📂 Estructura del proyecto
-⸻
 ```bash
 src/
  ├─ components/
@@ -85,68 +84,76 @@ src/
  ├─ main.jsx              → Renderizado principal
  └─ index.html
 ```
-⸻
 
-🚀 Cómo instalar y ejecutar el proyecto
+---
 
-1️⃣ Clonar el repositorio
+## 🚀 Cómo instalar y ejecutar el proyecto
 
+1️⃣ **Clonar el repositorio**
+
+```bash
 git clone https://github.com/RociiioGC/TP-FINAL-202501.git
+```
 
-2️⃣ Ingresar a la carpeta
+2️⃣ **Ingresar a la carpeta**
 
+```bash
 cd TP-FINAL-202501
+```
 
-3️⃣ Instalar dependencias
+3️⃣ **Instalar dependencias**
 
+```bash
 npm install
+```
 
-4️⃣ Ejecutar en modo desarrollo
+4️⃣ **Ejecutar en modo desarrollo**
 
+```bash
 npm run dev
+```
 
+---
 
-⸻
-
-📱 Responsive
+## 📱 Responsive
 
 Incluye media queries para pantallas menores a 480px:
 
-	•	Elementos más compactos
-	•	Mejor espaciado en móvil
-	•	Botón “Agregar” adaptado
-	•	Iconos más pequeños
-	•	Tarjeta más redondeada
+- Elementos más compactos  
+- Mejor espaciado en móvil  
+- Botón “Agregar” adaptado  
+- Iconos más pequeños  
+- Tarjeta más redondeada  
 
-⸻
+---
 
-✨ Funcionalidades destacadas
+## ✨ Funcionalidades destacadas
 
-	•	Validación completa al agregar y editar
-	•	Animación suave de entrada para cada tarea
-	•	Iconos estilo “sticker” con hover cartoon
-	•	Estrellas animadas decorativas en el header
-	•	Botón “Agregar” con efecto cartoon
-	•	Tarjeta con fondo punteado pastel
-	•	Línea de input discontinua rosa (libreta cute style)
+- Validación completa al agregar y editar  
+- Animación suave de entrada para cada tarea  
+- Iconos estilo “sticker” con hover cartoon  
+- Estrellas animadas decorativas en el header  
+- Botón “Agregar” con efecto cartoon  
+- Tarjeta con fondo punteado pastel  
+- Línea de input discontinua rosa (libreta cute style)  
 
-⸻
+---
 
-✔️ Estado del proyecto
+## ✔️ Estado del proyecto
 
 100% funcional — Cumple con:
 
-	•	CRUD completo
-	•	Persistencia en navegador
-	•	Validaciones estrictas
-	•	Filtros dinámicos
-	•	Diseño responsive
-	•	Código modular
-	•	Uso de carpeta utils
-	•	Buenas prácticas React
+- CRUD completo  
+- Persistencia en navegador  
+- Validaciones estrictas  
+- Filtros dinámicos  
+- Diseño responsive  
+- Código modular  
+- Uso de carpeta `utils`  
+- Buenas prácticas React  
 
-⸻
+---
 
-💖 Autora
+## 💖 Autora
 
-Desarrollado por Rocio García Cabrera, estudiante de FRONT END - ADA ITW.
+Desarrollado por **Rocio García Cabrera**, estudiante de FRONT END - ADA ITW.
