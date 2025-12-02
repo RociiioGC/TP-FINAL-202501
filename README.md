@@ -7,14 +7,15 @@ La app permite gestionar tareas de forma simple, rápida y visualmente atractiva
 ⸻
 
 🎯 Propósito del proyecto
-	•	➕ Agregar tareas
-	•	✔️ Marcar tareas como completadas
-	•	✏️ Editar y eliminar con confirmación
-	•	🔍 Filtrar por todas, pendientes y completadas
-	•	💾 Guardar automáticamente en el navegador
-	•	🎨 Usar una interfaz cute inspirada en cuadernos pastel
+	•	Agregar tareas
+	•	Marcar tareas como completadas
+	•	Editar y eliminar con confirmación
+	•	Filtrar por todas, pendientes y completadas
+	•	Guardar todo automáticamente en el navegador
+	•	Usar una interfaz “cute”, inspirada en libretas pastel
 
 Además cumple con:
+
 	•	Código modular y componentes reutilizables
 	•	Carpeta utils obligatoria
 	•	Lógica separada de la UI
@@ -39,6 +40,8 @@ A continuación se muestran vistas del funcionamiento de la aplicación:
 ⸻
 
 📝 Editar una tarea
+
+editar-tarea.png
 
 ⸻
 
@@ -65,6 +68,7 @@ A continuación se muestran vistas del funcionamiento de la aplicación:
 🛠️ Tecnologías utilizadas
 
 Frontend
+
 	•	React.js
 	•	Vite
 	•	CSS puro (sin frameworks mezclados)
@@ -72,6 +76,7 @@ Frontend
 	•	LocalStorage para persistencia
 
 Buenas prácticas
+
 	•	Componentes desacoplados
 	•	Funciones puras en /utils
 	•	Validación centralizada
@@ -80,7 +85,7 @@ Buenas prácticas
 ⸻
 
 📂 Estructura del proyecto
-
+⸻
 src/
  ├─ components/
  │   ├─ Form.jsx          → Input + botón “Agregar”
@@ -96,6 +101,7 @@ src/
  ├─ index.css             → Estilos globales (estética clean)
  ├─ main.jsx              → Renderizado principal
  └─ index.html
+
 ⸻
 
 🚀 Cómo instalar y ejecutar el proyecto
@@ -122,6 +128,7 @@ npm run dev
 📱 Responsive
 
 Incluye media queries para pantallas menores a 480px:
+
 	•	Elementos más compactos
 	•	Mejor espaciado en móvil
 	•	Botón “Agregar” adaptado
@@ -131,6 +138,7 @@ Incluye media queries para pantallas menores a 480px:
 ⸻
 
 ✨ Funcionalidades destacadas
+
 	•	Validación completa al agregar y editar
 	•	Animación suave de entrada para cada tarea
 	•	Iconos estilo “sticker” con hover cartoon
@@ -144,6 +152,7 @@ Incluye media queries para pantallas menores a 480px:
 ✔️ Estado del proyecto
 
 100% funcional — Cumple con:
+
 	•	CRUD completo
 	•	Persistencia en navegador
 	•	Validaciones estrictas
