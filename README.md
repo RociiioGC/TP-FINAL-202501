@@ -90,7 +90,7 @@ Buenas prácticas
 
 ⸻
 
-src/
+src/   
 
  ├─ components/
  │   ├─ Form.jsx          → Input + botón “Agregar”
@@ -134,6 +134,7 @@ npm run dev
 📱 Responsive
 
 Incluye media queries para pantallas menores a 480px:
+
 	•	Elementos más compactos
 	•	Mejor espaciado en móvil
 	•	Botón “Agregar” adaptado
@@ -143,6 +144,7 @@ Incluye media queries para pantallas menores a 480px:
 ⸻
 
 ✨ Funcionalidades destacadas
+
 	•	Validación completa al agregar y editar
 	•	Animación suave de entrada para cada tarea
 	•	Iconos estilo “sticker” con hover cartoon
@@ -156,6 +158,7 @@ Incluye media queries para pantallas menores a 480px:
 ✔️ Estado del proyecto
 
 100% funcional — Cumple con:
+
 	•	CRUD completo
 	•	Persistencia en navegador
 	•	Validaciones estrictas
