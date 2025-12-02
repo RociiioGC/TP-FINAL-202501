@@ -38,7 +38,7 @@ body {
 
 .todo-card {
   width: 100%;
-  max-width: 680px; /* antes 520px */
+  max-width: 680px; 
   background-color: var(--card-bg);
   border-radius: 32px;
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -356,6 +356,7 @@ body {
   }
 }
 
+/* MEDIA QUERY (DESKTOP) */
 @media (min-width: 1024px) {
     .todo-card {
       max-width: 720px;

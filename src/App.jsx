@@ -126,7 +126,6 @@ function App() {
             </svg>
           </div>
 
-          {/* sin “Pendientes de hoy ✨” como pediste */}
           <p className="todo-counter">
             Tenés <span>{pendingCount}</span> tarea(s) pendientes
           </p>
