@@ -4,8 +4,8 @@ function Form({ onAdd }) {
   const [value, setValue] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const text = value.trim();
 
     if (!text) {
@@ -14,7 +14,7 @@ function Form({ onAdd }) {
     }
 
     if (text.length > 100) {
-      setError("La tarea es demasiado larga (máx. 100 caracteres).");
+      setError("La tarea es demasiado larga.");
       return;
     }
 
@@ -23,35 +23,38 @@ function Form({ onAdd }) {
     setError("");
   };
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-    if (error) setError("");
-  };
-
   return (
-    <form onSubmit={handleSubmit} className="mt-2">
-      <div className="flex items-start gap-3">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-1 px-2">
+      {/* INPUT + BOTÓN */}
+      <div className="flex items-center gap-3">
         <input
-          type="text"
-          value={value}
-          onChange={handleChange}
+          className="
+            w-full bg-transparent outline-none
+            border-b-2 border-dashed border-[#e29be6]
+            pb-1 text-sm
+            placeholder:text-gray-500
+          "
           placeholder="Netflix, gym, lavar la ropa..."
-          className="flex-1 border-b-2 border-dashed border-pink-400 bg-transparent
-                     text-sm py-1 outline-none"
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+            if (error) setError("");
+          }}
         />
 
         <button
           type="submit"
-          className="px-3 py-1 text-sm font-semibold rounded-md bg-white shadow-md
-                     hover:-translate-y-[1px] hover:shadow-lg transition"
+          className="
+            text-xs bg-white border border-gray-300 rounded-md
+            px-3 py-1 shadow-sm hover:shadow-md transition
+          "
         >
           Agregar
         </button>
       </div>
 
-      {error && (
-        <p className="text-red-500 text-xs mt-1">{error}</p>
-      )}
+      {/* ERROR */}
+      {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
     </form>
   );
 }

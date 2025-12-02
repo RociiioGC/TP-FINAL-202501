@@ -10,7 +10,7 @@ function TodoList({ todos, onToggle, onDelete, onEdit }) {
   }
 
   return (
-    <div className="mt-4">
+    <div className="mt-2 space-y-1">
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}
