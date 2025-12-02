@@ -68,6 +68,7 @@ A continuación se muestran vistas del funcionamiento de la aplicación:
 🛠️ Tecnologías utilizadas
 
 Frontend
+
 	•	React.js
 	•	Vite
 	•	CSS puro (sin frameworks mezclados)
@@ -75,6 +76,7 @@ Frontend
 	•	LocalStorage para persistencia
 
 Buenas prácticas
+
 	•	Componentes desacoplados
 	•	Funciones puras en /utils
 	•	Validación centralizada
@@ -83,7 +85,9 @@ Buenas prácticas
 ⸻
 
 📂 Estructura del proyecto
+
 ⸻
+
 src/
  ├─ components/
  │   ├─ Form.jsx          → Input + botón “Agregar”
