@@ -25,59 +25,25 @@ Además cumple con:
 ⸻
 
 
-📸 Screenshots
+## 📸 Screenshots
 
 A continuación se muestran vistas del funcionamiento de la aplicación:
 
-⸻
+| 🖼️ Layout principal | ✨ Sin tareas |
+|---------------------|--------------|
+| ![Layout principal](./layout-principal.png) | ![Sin tareas](./mensaje-sin-tareas.png) |
 
-🖼️ Layout principal
+| 📝 Editar tarea | 🗑️ Confirmación para eliminar |
+|-----------------|------------------------------|
+| ![Editar tarea](./editar-tarea.png) | ![Confirmar eliminación](./eliminar-tarea.png) |
 
-![Layout principal](./layout-principal.png)
+| 🔽 Menú de filtros | ✔️ Mostrar completadas |
+|--------------------|------------------------|
+| ![Menú de opciones](./menu-opciones.png) | ![Completadas](./mostrar-completadas.png) |
 
-⸻
-
-✨ Sin tareas
-
-![Sin tareas](./mensaje-sin-tareas.png)
-
-⸻
-
-📝 Editar una tarea
-
-![Editar tarea](./editar-tarea.png)
-
-⸻
-
-🗑️ Confirmación para eliminar
-
-![Confirmar eliminación](./eliminar-tarea.png)
-
-⸻
-
-🔽 Menú de filtros
-
-![Menú de opciones](./menu-opciones.png)
-
-⸻
-
-✔️ Mostrar completadas
-
-![Completadas](./mostrar-completadas.png)
-
-⸻
-
-⏳ Mostrar pendientes
-
-![Pendientes](./mostrar-pendientes.png)
-
-⸻
-
-🟦 Tarea realizada (checkbox)
-
-
-![Tarea realizada](./tarea-realizada.png)
-
+| ⏳ Mostrar pendientes | 🟦 Tarea realizada |
+|----------------------|--------------------|
+| ![Pendientes](./mostrar-pendientes.png) | ![Tarea realizada](./tarea-realizada.png) |
 
 ⸻
 
