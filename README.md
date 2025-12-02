@@ -43,6 +43,8 @@ A continuación se muestran vistas del funcionamiento de la aplicación:
 
 📝 Editar una tarea
 
+editar-tarea.png
+
 ⸻
 
 🗑️ Confirmación para eliminar
