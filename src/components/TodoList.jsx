@@ -1,35 +1,36 @@
-import { useState } from "react";
-import Button from "./components/Button";  
+// src/components/TodoList.jsx
+import { VStack, Text, UnorderedList } from "@chakra-ui/react";
+import TodoItem from "./TodoItem";
 
-function Form({ onAdd }) {
-  const [text, setText] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const trimmed = text.trim();
-    if (!trimmed) return;
-    onAdd(trimmed);
-    setText("");
-  };
+function TodoList({ todos, onToggle, onDelete, onEdit }) {
+  if (todos.length === 0) {
+    return (
+      <Text
+        textAlign="center"
+        color="gray.500"
+        fontSize="sm"
+        mt={2}
+      >
+        Todavía no tenés tareas. ¡Agregá una arriba! ✨
+      </Text>
+    );
+  }
 
   return (
-    <form onSubmit={handleSubmit} className="todo-form">
-      <div className="todo-input-wrapper">
-        <input
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Netflix, gym, lavar la ropa..."
-          className="todo-input"
-        />
-        <div className="todo-input-underline" />
-      </div>
-
-      <Button type="submit" variant="primary">
-        Agregar
-      </Button>
-    </form>
+    <UnorderedList styleType="none" m={0} p={0}>
+      <VStack align="stretch" spacing={2}>
+        {todos.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            onToggle={onToggle}
+            onDelete={onDelete}
+            onEdit={onEdit}
+          />
+        ))}
+      </VStack>
+    </UnorderedList>
   );
 }
 
-export default Form;
+export default TodoList;
