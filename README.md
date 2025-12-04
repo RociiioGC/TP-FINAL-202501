@@ -1,158 +1,179 @@
-# 📝 To-Do List — Proyecto Final (ADA)
+# ✨ To-Do List — Proyecto Final (React + Vite + Chakra UI)
 
-Aplicación web creada como Trabajo Práctico Final del Módulo 4 – **Vite/React**, cumpliendo los requisitos de componentes, validaciones, filtros, diseño responsive y persistencia en **localStorage**.
-
-La app permite gestionar tareas de forma simple, rápida y visualmente atractiva.
+Aplicación moderna y estética para gestionar tareas.  
+Permite **agregar**, **editar**, **completar**, **eliminar** y **filtrar** tareas con una interfaz clara y minimalista, construida con **Chakra UI**.
 
 ---
 
-## 🎯 Propósito del proyecto
+## 🧩 Descripción general
 
-- Agregar tareas  
-- Marcar tareas como completadas  
-- Editar y eliminar con confirmación  
-- Filtrar por todas, pendientes y completadas  
-- Guardar todo automáticamente en el navegador  
-- Interfaz “cute”, inspirada en libretas pastel  
+Este proyecto fue desarrollado como **Trabajo Práctico Final del Módulo 4 (React)**.  
+El objetivo es crear una To-Do List que:
 
-Además incluye:
+- Sea **totalmente funcional**
+- Tenga **buenas prácticas de React**
+- Use **Chakra UI** como sistema de diseño
+- Persista los datos en **localStorage**
+- Sea visualmente agradable y usable
 
-- Código modular y componentes reutilizables  
-- Carpeta `utils` obligatoria  
-- Lógica separada de la UI  
-- Validación estricta de datos  
-- Diseño responsive mobile-first  
-- Persistencia real en localStorage  
+---
+
+## 🖊️ Tecnologías utilizadas
+
+### Frontend
+- **React.js** (con Vite)
+- **Chakra UI** (componentes estilados)
+- **JavaScript ES6+**
+
+### Estilos y diseño
+- Sistema de diseño basado en **Chakra UI**  
+- **Tema personalizado** (`theme.js`) con:
+  - Paleta de colores `cutePurple` y `cutePink`
+  - Sombras y bordes redondeados custom
+- Tipografía configurada mediante **Google Fonts** (fuente sans-serif personalizada)
+
+### Persistencia
+- **localStorage** para guardar las tareas del usuario
+
+---
+
+## 🗂️ Estructura del proyecto
+
+```bash
+src/
+ ├── assets/
+ ├── components/
+ │    ├── Form.jsx
+ │    ├── TodoItem.jsx
+ │    └── TodoList.jsx
+ ├── utils/
+ │    ├── filters.js        # Lógica de filtros y contadores
+ │    ├── localStorage.js   # Carga y guardado en localStorage
+ │    └── validators.js     # Validación de texto de la tarea
+ ├── App.jsx                # Lógica principal + modales Chakra
+ ├── main.jsx               # ChakraProvider + theme
+ └── theme.js               # Tema personalizado Chakra UI
+```
+
+---
+
+## ⚙️ Funcionalidades principales
+
+### ➕ Agregar tarea
+- Input con icono y botón “Agregar”.
+- Validación mediante `validateTodoText`:
+  - No permite tareas vacías.
+  - No permite tareas demasiado largas.
+- Si hay error, se muestra **modal de alerta** (Chakra Modal).
+
+### ✏️ Editar tarea
+- Cada ítem tiene un botón de edición.
+- Al hacer clic se abre un **modal Chakra UI** con un `Input` para editar el texto.
+- Se vuelve a validar antes de guardar.
+
+### ✔️ Marcar como completada
+- Checkbox estilado con Chakra (`Checkbox` con `colorScheme="purple"`).
+- Al completarse:
+  - El texto se ve tachado.
+  - Se aplica un fondo suave.
+  - Se muestra un badge `✓ listo`.
+
+### 🗑️ Eliminar tarea
+- Botón de eliminar con ícono de tacho.
+- Antes de eliminar se abre un **modal de confirmación**:
+  - Muestra el texto de la tarea.
+  - Permite “Cancelar” o “Eliminar”.
+
+### 🔍 Filtros
+- Select con tres opciones:
+  - `Todas`
+  - `Pendientes`
+  - `Completadas`
+- Lógica de filtros separada en `utils/filters.js`.
+- Además se muestra el **conteo de tareas pendientes**.
+
+### 💾 Persistencia
+- Al crear, editar, completar o eliminar:
+  - Se actualiza el estado en React.
+  - Se guarda el array de tareas en `localStorage` mediante `saveTodos`.
+- Al iniciar la app:
+  - Se cargan las tareas previas con `loadTodos`.
+
+---
+
+## 🧠 React + Chakra usados
+
+- `useState` para:
+  - Lista de tareas
+  - Filtro actual
+  - Estado del modal (tipo, texto, id seleccionado, etc.)
+
+- `useEffect` para:
+  - Guardar en `localStorage` cada vez que cambian las tareas
+
+- **Chakra UI**:
+  - Layout: `Box`, `Container`, `VStack`, `HStack`
+  - Formularios: `Input`, `InputGroup`, `InputLeftElement`, `Select`, `Checkbox`
+  - Feedback: `Badge`, `Text`, `Button`, `IconButton`
+  - Modal: `Modal`, `ModalOverlay`, `ModalContent`, `ModalHeader`, `ModalBody`, `ModalFooter`
+  - Iconos: `AddIcon`, `EditIcon`, `DeleteIcon`
+  - Tema personalizado: colores, radios y sombras definidas en `theme.js`
+
+---
+
+## 🎨 Diseño y UX
+
+- Card principal con efecto “glassmorphism” usando `Box` de Chakra.
+- Sombras suaves y bordes redondeados (`borderRadius="3xl"`).
+- Botones y campos de entrada con `hover` y `active` states sutiles.
+- Etiquetas visuales para estado de la tarea (badge “✓ listo”).
+- Modal amigable para feedback de errores y confirmaciones.
 
 ---
 
 ## 📸 Screenshots
 
-A continuación se muestran vistas del funcionamiento de la aplicación:
+Las siguientes capturas se encuentran en la carpeta `./screenshots/` del proyecto.
 
-| 🖼️ Layout principal | ✨ Sin tareas |
-|---------------------|--------------|
-| ![Layout principal](./layout-principal.png) | ![Sin tareas](./mensaje-sin-tareas.png) |
+### 🌸 Vista principal
+![Vista principal](./screenshots/vista-principal.png)
 
-| 📝 Editar tarea | 🗑️ Confirmación para eliminar |
-|-----------------|------------------------------|
-| ![Editar tarea](./editar-tarea.png) | ![Confirmar eliminación](./eliminar-tarea.png) |
+### ➕ Agregar tarea
+![Agregar tarea](./screenshots/agregar-tarea.png)
 
-| 🔽 Menú de filtros | ✔️ Mostrar completadas |
-|--------------------|------------------------|
-| ![Menú de opciones](./menu-opciones.png) | ![Completadas](./mostrar-completadas.png) |
+### 📝 Editar tarea (modal)
+![Editar tarea](./screenshots/alert-editar-tarea.png)
 
-| ⏳ Mostrar pendientes | 🟦 Tarea realizada |
-|----------------------|--------------------|
-| ![Pendientes](./mostrar-pendientes.png) | ![Tarea realizada](./tarea-realizada.png) |
+### 🗑️ Confirmación para eliminar
+![Eliminar tarea](./screenshots/alert-eliminar-tarea.png)
 
----
+### ✔️ Marcar tarea como realizada
+![Marcar tarea realizada](./screenshots/marcar-tarea-realizada.png)
 
-## 🛠️ Tecnologías utilizadas
+### 📂 Menú de filtros
+![Menú de filtros](./screenshots/menu-filtros.png)
 
-### Frontend
-- React.js  
-- Vite  
-- CSS puro  
-- Google Fonts — Kalam  
-- LocalStorage para persistencia  
+### 📘 Tareas completadas
+![Tareas completadas](./screenshots/tareas-completadas.png)
 
-### Buenas prácticas
-- Componentes desacoplados  
-- Funciones puras en `/utils`  
-- Validación centralizada  
-- Código limpio y organizado  
+### 📙 Tareas pendientes
+![Tareas pendientes](./screenshots/tareas-pendientes.png)
 
 ---
 
-## 📂 Estructura del proyecto
-
-```bash
-src/
- ├─ components/
- │   ├─ Form.jsx          → Input + botón “Agregar”
- │   ├─ TodoItem.jsx      → Cada tarea individual (checkbox + iconos)
- │   ├─ TodoList.jsx      → Lista renderizada de tareas
- │
- ├─ utils/
- │   ├─ localStorage.js   → Guarda / carga datos del navegador
- │   ├─ validators.js     → Validación del texto ingresado
- │   ├─ filters.js        → Lógica de filtrado y contador
- │
- ├─ App.jsx               → Lógica principal + vista general
- ├─ index.css             → Estilos globales (estética clean)
- ├─ main.jsx              → Renderizado principal
- └─ index.html
-```
-
----
-
-## 🚀 Cómo instalar y ejecutar el proyecto
-
-1️⃣ **Clonar el repositorio**
+## 🚀 Instalación y ejecución
 
 ```bash
 git clone https://github.com/RociiioGC/TP-FINAL-202501.git
-```
-
-2️⃣ **Ingresar a la carpeta**
-
-```bash
-cd TP-FINAL-202501
-```
-
-3️⃣ **Instalar dependencias**
-
-```bash
+cd ubicacion de tu carpeta local
 npm install
-```
-
-4️⃣ **Ejecutar en modo desarrollo**
-
-```bash
 npm run dev
 ```
 
----
-
-## 📱 Responsive
-
-Incluye media queries para pantallas menores a 480px:
-
-- Elementos más compactos  
-- Mejor espaciado en móvil  
-- Botón “Agregar” adaptado  
-- Iconos más pequeños  
-- Tarjeta más redondeada  
+> La aplicación se ejecutará normalmente en `http://localhost:5173/`.
 
 ---
 
-## ✨ Funcionalidades destacadas
-
-- Validación completa al agregar y editar  
-- Animación suave de entrada para cada tarea  
-- Iconos estilo “sticker” con hover cartoon  
-- Estrellas animadas decorativas en el header  
-- Botón “Agregar” con efecto cartoon  
-- Tarjeta con fondo punteado pastel  
-- Línea de input discontinua rosa (libreta cute style)  
-
----
-
-## ✔️ Estado del proyecto
-
-100% funcional — Cumple con:
-
-- CRUD completo  
-- Persistencia en navegador  
-- Validaciones estrictas  
-- Filtros dinámicos  
-- Diseño responsive  
-- Código modular  
-- Uso de carpeta `utils`  
-- Buenas prácticas React  
-
----
 
 ## 💖 Autora
 
