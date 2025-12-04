@@ -1,27 +1,35 @@
-import TodoItem from "./TodoItem";
+import { useState } from "react";
+import Button from "./components/Button";  
 
-function TodoList({ todos, onToggle, onDelete, onEdit }) {
-  if (todos.length === 0) {
-    return (
-      <p className="todo-empty">
-        Todavía no tenés tareas. ¡Agregá una arriba! ✨
-      </p>
-    );
-  }
+function Form({ onAdd }) {
+  const [text, setText] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const trimmed = text.trim();
+    if (!trimmed) return;
+    onAdd(trimmed);
+    setText("");
+  };
 
   return (
-    <ul className="todo-list">
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          onToggle={onToggle}
-          onDelete={onDelete}
-          onEdit={onEdit}
+    <form onSubmit={handleSubmit} className="todo-form">
+      <div className="todo-input-wrapper">
+        <input
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Netflix, gym, lavar la ropa..."
+          className="todo-input"
         />
-      ))}
-    </ul>
+        <div className="todo-input-underline" />
+      </div>
+
+      <Button type="submit" variant="primary">
+        Agregar
+      </Button>
+    </form>
   );
 }
 
-export default TodoList;
+export default Form;
