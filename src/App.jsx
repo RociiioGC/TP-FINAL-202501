@@ -29,8 +29,7 @@ function App() {
   const [todos, setTodos] = useState(() => loadTodos());
   const [filter, setFilter] = useState("all");
 
-  // modal genérico: alerta / eliminar / editar
-  const [modalType, setModalType] = useState(null); // "alert" | "delete" | "edit"
+  const [modalType, setModalType] = useState(null);
   const [modalTitle, setModalTitle] = useState("");
   const [modalMessage, setModalMessage] = useState("");
   const [selectedTodoId, setSelectedTodoId] = useState(null);
@@ -42,7 +41,6 @@ function App() {
     saveTodos(todos);
   }, [todos]);
 
-  // ---- Helpers de modal ----
   const openAlertModal = (message, title = "Atención") => {
     setModalType("alert");
     setModalTitle(title);
@@ -66,7 +64,6 @@ function App() {
     onOpen();
   };
 
-  // ---- Handlers de To-Do ----
   const handleAdd = (text) => {
     const error = validateTodoText(text);
     if (error) {
@@ -137,84 +134,78 @@ function App() {
   const pendingCount = countPendingTodos(todos);
 
   return (
-    <Box
-      minH="100vh"
-      bgGradient="linear(to-b, purple.50, pink.50)"
-      py={10}
-    >
+    <Box minH="100vh" bgGradient="linear(to-b, purple.50, pink.50)" py={10}>
       <Container maxW="lg">
-        <VStack spacing={6} align="stretch">
-          {/* HEADER */}
-          <VStack spacing={4} textAlign="center" mt={-2}>
-            <Badge
-              bg="pink.200"
-              color="purple.800"
-              borderRadius="full"
-              px={6}
-              py={2}
-              fontSize="1.4rem"
-              fontWeight="bold"
-              boxShadow="0 6px 15px rgba(200, 150, 255, 0.3)"
-              letterSpacing="0.5px"
-            >
-              ✨ TO-DO LIST ✨
-            </Badge>
+        {/* CARD PRINCIPAL (TODO ADENTRO) */}
+        <Box
+          bg="rgba(255,255,255,0.9)"
+          p={8}
+          borderRadius="3xl"
+          boxShadow="0 24px 60px rgba(148, 94, 255, 0.3)"
+          backdropFilter="blur(22px)"
+          border="1px solid rgba(255,255,255,0.8)"
+        >
+          <VStack spacing={8} align="stretch">
+            {/* HEADER */}
+            <VStack spacing={4} textAlign="center" mt={-2}>
+              <Badge
+                bg="pink.50"
+                color="purple.600"
+                borderRadius="full"
+                px={6}
+                py={2}
+                fontSize="1.4rem"
+                fontWeight="bold"
+                boxShadow="0 6px 15px rgba(200, 150, 255, 0.3)"
+                letterSpacing="0.5px"
+              >
+                ✨ TO-DO LIST ✨
+              </Badge>
 
-            <Text fontSize="sm" color="gray.600">
-              Tenés{" "}
-              <Text as="span" fontWeight="bold" color="purple.700">
-                {pendingCount}
-              </Text>{" "}
-              tarea(s) pendientes.
-            </Text>
-          </VStack>
+              <Text fontSize="sm" color="gray.600">
+                Tenés{" "}
+                <Text as="span" fontWeight="bold" color="purple.700">
+                  {pendingCount}
+                </Text>{" "}
+                tarea(s) pendientes.
+              </Text>
+            </VStack>
 
-          {/* FORM */}
-          <Box
-            bg="white"
-            p={5}
-            borderRadius="2xl"
-            boxShadow="0 10px 25px rgba(148, 94, 255, 0.2)"
-          >
+            {/* FORM */}
             <Form onAdd={handleAdd} />
-          </Box>
 
-          {/* FILTRO */}
-          <HStack justify="flex-end" spacing={3}>
-            <Text fontSize="sm" color="gray.700">
-              Ver:
-            </Text>
-            <Select
-              value={filter}
-              onChange={handleFilterChange}
-              size="sm"
-              maxW="180px"
-              borderRadius="full"
-              bg="white"
-              boxShadow="0 4px 12px rgba(150, 120, 255, 0.2)"
-              focusBorderColor="purple.400"
-            >
-              <option value="all">Todas</option>
-              <option value="pending">Pendientes</option>
-              <option value="completed">Completadas</option>
-            </Select>
-          </HStack>
+            {/* FILTRO */}
+            <HStack justify="flex-end" spacing={3}>
+              <Text fontSize="sm" color="gray.700">
+                Ver:
+              </Text>
+              <Select
+                value={filter}
+                onChange={handleFilterChange}
+                size="sm"
+                maxW="180px"
+                borderRadius="full"
+                bg="white"
+                boxShadow="0 4px 12px rgba(150, 120, 255, 0.2)"
+                focusBorderColor="purple.400"
+              >
+                <option value="all">Todas</option>
+                <option value="pending">Pendientes</option>
+                <option value="completed">Completadas</option>
+              </Select>
+            </HStack>
 
-          {/* LISTA */}
-          <Box
-            bg="white"
-            p={5}
-            borderRadius="2xl"
-            boxShadow="0 10px 25px rgba(148, 94, 255, 0.2)"
-          >
-            <TodoList
-              todos={filteredTodos}
-              onToggle={handleToggle}
-              onDelete={handleDelete}
-              onEdit={handleEdit}
-            />
-          </Box>
-        </VStack>
+            {/* LISTA DENTRO DE LA MISMA CARD */}
+            <VStack spacing={3} mt={2} align="stretch">
+              <TodoList
+                todos={filteredTodos}
+                onToggle={handleToggle}
+                onDelete={handleDelete}
+                onEdit={handleEdit}
+              />
+            </VStack>
+          </VStack>
+        </Box>
 
         {/* MODAL CHAKRA */}
         <Modal isOpen={isOpen} onClose={onClose} isCentered>
