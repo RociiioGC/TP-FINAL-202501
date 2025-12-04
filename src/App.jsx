@@ -3,7 +3,6 @@ import {
   Box,
   Container,
   VStack,
-  Heading,
   Text,
   HStack,
   Select,
@@ -146,22 +145,20 @@ function App() {
       <Container maxW="lg">
         <VStack spacing={6} align="stretch">
           {/* HEADER */}
-          <VStack spacing={3} textAlign="center">
+          <VStack spacing={4} textAlign="center" mt={-2}>
             <Badge
-              bg="pink.100"
-              color="purple.700"
+              bg="pink.200"
+              color="purple.800"
               borderRadius="full"
-              px={4}
-              py={1}
-              fontSize="0.9rem"
-              boxShadow="0 4px 10px rgba(200, 150, 255, 0.3)"
+              px={6}
+              py={2}
+              fontSize="1.4rem"
+              fontWeight="bold"
+              boxShadow="0 6px 15px rgba(200, 150, 255, 0.3)"
+              letterSpacing="0.5px"
             >
-              ✨ To-Do List ✨
+              ✨ TO-DO LIST ✨
             </Badge>
-
-            <Heading size="lg" color="purple.800">
-              Tu lista de tareas
-            </Heading>
 
             <Text fontSize="sm" color="gray.600">
               Tenés{" "}
