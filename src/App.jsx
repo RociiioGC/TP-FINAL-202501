@@ -136,7 +136,7 @@ function App() {
   return (
     <Box minH="100vh" bgGradient="linear(to-b, purple.50, pink.50)" py={10}>
       <Container maxW="lg">
-        {/* CARD PRINCIPAL (TODO ADENTRO) */}
+        {/* CARD PRINCIPAL */}
         <Box
           bg="rgba(255,255,255,0.9)"
           p={8}
