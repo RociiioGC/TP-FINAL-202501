@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./UI/Button"; 
 
 function Form({ onAdd }) {
   const [text, setText] = useState("");
@@ -24,9 +25,9 @@ function Form({ onAdd }) {
         <div className="todo-input-underline" />
       </div>
 
-      <button type="submit" className="add-button">
+      <Button type="submit" variant="primary">
         Agregar
-      </button>
+      </Button>
     </form>
   );
 }

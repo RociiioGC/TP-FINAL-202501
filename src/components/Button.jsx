@@ -1,4 +1,4 @@
-const Modal = ({ isOpen, onClose, children }) => {
+const Button = ({ isOpen, onClose, children }) => {
     if (!isOpen) return null;
   
     return (
@@ -11,4 +11,4 @@ const Modal = ({ isOpen, onClose, children }) => {
     );
   };
   
-  export default Modal;
+  export default Button;
